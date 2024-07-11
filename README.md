@@ -143,7 +143,6 @@ Ensure that the network settings are configured correctly for [Core Testnet](htt
          {
             version: '0.8.9',
             settings: {
-               evmVersion: 'paris',
                optimizer: {
                   enabled: true,
                   runs: 200,
