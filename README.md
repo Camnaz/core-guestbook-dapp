@@ -72,11 +72,11 @@ navigate to the root of your directory in the terminal and type `code .` and hit
 
 ## 4. Create secret.json File
 Create a secret.json file in the root directory of your project to store your private key securely. Replace YOUR_PRIVATE_KEY with your actual private key.
-
+```
 {
   "PrivateKey": "YOUR_PRIVATE_KEY"
 }
-
+```
 <img width="1512" alt="gdscreenshot5" src="https://github.com/Camnaz/guestbook-dapp/assets/32852637/3b6b1921-e5c0-471c-ae7e-d4cad79f7fa0">
 
 
@@ -117,43 +117,50 @@ Replace the contents of hardhat.config.js with the following configuration:
 Ensure that the network settings are configured correctly for [Core Testnet](https://docs.coredao.org/docs/Dev-Guide/contract-verify#hardhat-verification)
 
 ```
-require('@nomiclabs/hardhat-ethers');
-require("@nomiclabs/hardhat-waffle");
+/**
+ * @type import('hardhat/config').HardhatUserConfig
+ */
 
-const { PrivateKey } = require('./secret.json');
+ require('@nomiclabs/hardhat-ethers');
+ require("@nomiclabs/hardhat-waffle");
 
-module.exports = {
-  defaultNetwork: 'testnet',
-  networks: {
-    hardhat: {},
-    testnet: {
-      url: 'https://rpc.test.btcs.network',
-      accounts: [PrivateKey],
-      chainId: 1115,
-    }
-  },
-  solidity: {
-    compilers: [
-      {
-        version: '0.8.9',
-        settings: {
-          optimizer: {
-            enabled: true,
-            runs: 200,
-          },
-        },
-      },
-    ],
-  },
-  paths: {
-    sources: './contracts',
-    cache: './cache',
-    artifacts: './artifacts',
-  },
-  mocha: {
-    timeout: 20000,
-  },
-};
+ const { PrivateKey } = require('./secret.json');
+
+ module.exports = {
+    defaultNetwork: 'testnet',
+ 
+    networks: {
+       hardhat: {
+       },
+       testnet: {
+          url: 'https://rpc.test.btcs.network',
+          accounts: [PrivateKey],
+          chainId: 1115,
+       }
+    },
+    solidity: {
+       compilers: [
+         {
+            version: '0.8.9',
+            settings: {
+               evmVersion: 'paris',
+               optimizer: {
+                  enabled: true,
+                  runs: 200,
+               },
+            },
+         },
+       ],
+    },
+    paths: {
+       sources: './contracts',
+       cache: './cache',
+       artifacts: './artifacts',
+    },
+    mocha: {
+       timeout: 20000,
+    },
+ };
 ```
 <img width="1512" alt="gdscreenshot5 1" src="https://github.com/Camnaz/guestbook-dapp/assets/32852637/d78ae0d4-c9dc-4ba0-9e96-99c38c0a7c89">
 
