@@ -223,6 +223,7 @@ main().catch((error) => {
 
 
 2. Deploy the Contract
+
 Deploy the contract to the Core network:
 
 ```
