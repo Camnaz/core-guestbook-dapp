@@ -165,6 +165,7 @@ Ensure that the network settings are configured correctly for [Core Testnet](htt
 
 
 ## Writing the Smart Contract
+
 1. Create the Guestbook Smart Contract
 
 Delete the `lock.sol` file in `Contracts`
@@ -196,6 +197,7 @@ contract Guestbook {
 
 
 ## Deploying the Smart Contract
+
 1. Create Deployment Script
 Create a file scripts/deploy.js with the following content:
 
@@ -233,6 +235,7 @@ npx hardhat run scripts/deploy.js --network testnet
 
 
 ## Setting Up the React Frontend
+
 1. Create the React App
 Create the basic structure for a React frontend:
 
@@ -245,6 +248,7 @@ cd frontend
 
 
 2. Install Ethers.js
+
 Install the Ethers.js library:
 
 ```
@@ -255,6 +259,7 @@ npm install ethers
 
 
 3. Add GuestbookAbi.json
+
 Copy the Guestbook.json file from artifacts/contracts/Guestbook.sol/ to the frontend/src directory and rename it to GuestbookAbi.json.
 
 Ensure you replace placeholders like `YOUR_CONTRACT_ADDRESS` with actual values from your deployment.
